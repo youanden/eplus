@@ -1,14 +1,19 @@
 .page-header
   = link_to admins_path, :class => 'btn btn-default' do
     %span.glyphicon.glyphicon-list-alt
-    Back
+    = t(:back)
   = link_to edit_admin_path(@admin), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
-    Edit
-  %h1 Show admin
+    = t(:edit)
+  %h1= t(:show_admin)
 
 %dl.dl-horizontal
-  %dt Username:
+  %dt= t(:username)
   %dd= @admin.username
-  %dt Created on:
+  %dt= t(:created_on)
   %dd= @admin.created_at
+  %dt= t(:authorized)
+  %dd
+    - @authorizations.each do |auth|
+      = auth.name
+

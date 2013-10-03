@@ -1,15 +1,15 @@
 .page-header
   = link_to new_admin_path, :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
-    New Admin
-  %h1 Listing admins
+    = t(:new_admin)
+  %h1= t(:listing_admins)
 
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-        %th Username
-        %th Created At
+        %th= t(:username)
+        %th= t(:created_at)
         %th
         %th
         %th
@@ -19,6 +19,6 @@
         %tr
           %td= admin.username
           %td= admin.created_at
-          %td= link_to 'Show', admin
-          %td= link_to 'Edit', edit_admin_path(admin)
-          %td= link_to 'Destroy', admin, :data => { confirm: 'Are you sure?' }, :method => :delete
+          %td= link_to t(:show), admin
+          %td= link_to t(:edit), edit_admin_path(admin)
+          %td= link_to t(:destroy), admin, :data => { confirm: t(:are_you_sure) }, :method => :delete

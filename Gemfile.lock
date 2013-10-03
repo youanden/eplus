@@ -34,6 +34,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
@@ -70,6 +71,7 @@ GEM
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     hike (1.2.3)
+    httpclient (2.3.4.1)
     i18n (0.6.5)
     jbuilder (1.5.1)
       activesupport (>= 3.0.0)
@@ -142,6 +144,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bcrypt-ruby
   better_errors
   binding_of_caller
@@ -150,6 +153,7 @@ DEPENDENCIES
   debugger
   dotenv-rails
   haml-rails
+  httpclient
   jbuilder (~> 1.2)
   jquery-rails
   mysql2

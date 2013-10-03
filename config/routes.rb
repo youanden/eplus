@@ -1,6 +1,10 @@
 EPlus::Application.routes.draw do
+  resources :api_authorizations
+
   get "sign_in" => "sessions#new", as: "sign_in"
   get "sign_out" => "sessions#destroy", as: "sign_out"
+  get "authorize/:type" => "api_authorizations#create"
+  get "authorize" => "api_authorizations#authorize"
   resources :admins
   resources :sessions
 
@@ -52,8 +56,4 @@ EPlus::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
 end

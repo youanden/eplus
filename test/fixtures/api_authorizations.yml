@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  value: MyString
+  expires_on: 2013-10-03 00:33:19
+  admin_id: 
+
+two:
+  name: MyString
+  value: MyString
+  expires_on: 2013-10-03 00:33:19
+  admin_id: 
