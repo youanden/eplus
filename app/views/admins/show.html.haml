@@ -1,0 +1,14 @@
+.page-header
+  = link_to admins_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_admin_path(@admin), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show admin
+
+%dl.dl-horizontal
+  %dt Username:
+  %dd= @admin.username
+  %dt Created on:
+  %dd= @admin.created_at

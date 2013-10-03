@@ -9,6 +9,9 @@ gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Use bootstrap layout generators
+gem 'bootstrap-generators', git: 'git://github.com/decioferreira/bootstrap-generators.git'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -37,9 +40,10 @@ end
 
 # Use unicorn as the app server
 gem 'puma'
-
+gem 'haml-rails'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 # Use debugger
 gem 'debugger', group: [:development, :test]

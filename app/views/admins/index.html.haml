@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_admin_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Admin
+  %h1 Listing admins
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Username
+        %th Created At
+        %th
+        %th
+        %th
+
+    %tbody
+      - @admins.each do |admin|
+        %tr
+          %td= admin.username
+          %td= admin.created_at
+          %td= link_to 'Show', admin
+          %td= link_to 'Edit', edit_admin_path(admin)
+          %td= link_to 'Destroy', admin, :data => { confirm: 'Are you sure?' }, :method => :delete

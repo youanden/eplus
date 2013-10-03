@@ -20,4 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_name: "EPlus"
+  sign_in: "Sign in"
+  username: "Username"
+  password: "Password"
+  submit: "Submit"
+  signed_in_message: "Signed in!"
+  signed_out_message: "Signed out!"
+  invalid_email_or_password: "Invalid email or password"
