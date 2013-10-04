@@ -1,5 +1,6 @@
 class Admin < ActiveRecord::Base
   has_many :api_authorizations
+  has_many :classrooms
   attr_accessor :password
   before_save :encrypt_password
 

@@ -1,4 +1,6 @@
 EPlus::Application.routes.draw do
+  resources :classrooms
+
   resources :api_authorizations
 
   get "sign_in" => "sessions#new", as: "sign_in"

@@ -1,0 +1,26 @@
+.page-header
+  = link_to new_classroom_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t(:new_classroom)
+  %h1= t(:listing_classrooms)
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th= t(:name)
+        %th= t(:quizlet)
+        %th= t(:admin)
+        %th
+        %th
+        %th
+
+    %tbody
+      - @classrooms.each do |classroom|
+        %tr
+          %td= classroom.name
+          %td= classroom.quizlet_id
+          %td= classroom.admin
+          %td= link_to t(:show), classroom
+          %td= link_to t(:edit), edit_classroom_path(classroom)
+          %td= link_to t(:destroy), classroom, :data => { confirm: t(:are_you_sure) }, :method => :delete

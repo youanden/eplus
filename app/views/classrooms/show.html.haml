@@ -1,0 +1,16 @@
+.page-header
+  = link_to classrooms_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t(:back)
+  = link_to edit_classroom_path(@classroom), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    = t(:edit)
+  %h1= t(:show_classroom)
+
+%dl.dl-horizontal
+  %dt= t(:name)
+  %dd= @classroom.name
+  %dt= t(:quizlet)
+  %dd= @classroom.quizlet_id
+  %dt= t(:admin)
+  %dd= @classroom.admin
