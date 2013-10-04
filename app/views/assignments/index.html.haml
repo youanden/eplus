@@ -12,7 +12,6 @@
         %th= t(:value)
         %th= t(:due_date)
         %th= t(:classroom)
-        %th= t(:quizlet)
         %th= t(:admin)
         %th
         %th
@@ -24,9 +23,8 @@
           %td= assignment.name
           %td= assignment.value
           %td= assignment.due_date
-          %td= assignment.classroom
-          %td= assignment.quizlet_id
-          %td= assignment.admin
+          %td= assignment.classroom.name
+          %td= assignment.admin.username
           %td= link_to t(:show), assignment
           %td= link_to t(:edit), edit_assignment_path(assignment)
           %td= link_to t(:destroy), assignment, :data => { confirm: t(:are_you_sure) }, :method => :delete

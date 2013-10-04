@@ -25,6 +25,7 @@ class ClassroomsController < ApplicationController
   # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
+    @classroom.admin_id = current_admin[:id]
 
     respond_to do |format|
       if @classroom.save
@@ -69,6 +70,6 @@ class ClassroomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
-      params.require(:classroom).permit(:name, :quizlet_id, :admin_id)
+      params.require(:classroom).permit(:name, :quizlet_id)
     end
 end

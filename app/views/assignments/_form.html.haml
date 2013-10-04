@@ -23,15 +23,11 @@
   .form-group
     = f.label :classroom, :class => 'col-lg-2 control-label'
     .col-lg-10
-      = f.text_field :classroom, :class => 'form-control'
+      = collection_select(:assignment, :classroom_id, Classroom.all, :id, :name, {}, :class => "form-control")
   .form-group
     = f.label :quizlet_id, :class => 'col-lg-2 control-label'
     .col-lg-10
       = f.number_field :quizlet_id, :class => 'form-control'
-  .form-group
-    = f.label :admin, :class => 'col-lg-2 control-label'
-    .col-lg-10
-      = f.text_field :admin, :class => 'form-control'
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit :class => 'btn btn-primary'

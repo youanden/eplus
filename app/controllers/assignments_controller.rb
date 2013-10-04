@@ -25,6 +25,7 @@ class AssignmentsController < ApplicationController
   # POST /assignments.json
   def create
     @assignment = Assignment.new(assignment_params)
+    @assignment.admin_id = current_admin[:id]
 
     respond_to do |format|
       if @assignment.save
@@ -69,6 +70,6 @@ class AssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
-      params.require(:assignment).permit(:name, :value, :due_date, :classroom_id, :quizlet_id, :admin_id)
+      params.require(:assignment).permit(:name, :value, :due_date, :classroom_id, :quizlet_id)
     end
 end

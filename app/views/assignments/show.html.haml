@@ -5,7 +5,7 @@
   = link_to edit_assignment_path(@assignment), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     = t(:edit)
-  %h1 Show assignment
+  %h1= t(:show_assignment)
 
 %dl.dl-horizontal
   %dt= t(:name)
@@ -15,8 +15,8 @@
   %dt= t(:due_date)
   %dd= @assignment.due_date
   %dt= t(:classroom)
-  %dd= @assignment.classroom
+  %dd= @assignment.classroom.name
   %dt= t(:quizlet)
   %dd= @assignment.quizlet_id
   %dt= t(:admin)
-  %dd= @assignment.admin
+  %dd= @assignment.admin.username

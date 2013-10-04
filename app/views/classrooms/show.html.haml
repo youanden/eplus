@@ -10,7 +10,7 @@
 %dl.dl-horizontal
   %dt= t(:name)
   %dd= @classroom.name
-  %dt= t(:quizlet)
+  %dt= t(:quizlet_id)
   %dd= @classroom.quizlet_id
   %dt= t(:admin)
-  %dd= @classroom.admin
+  %dd= @classroom.admin.username
