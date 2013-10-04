@@ -1,0 +1,22 @@
+.page-header
+  = link_to assignments_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t(:back)
+  = link_to edit_assignment_path(@assignment), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    = t(:edit)
+  %h1 Show assignment
+
+%dl.dl-horizontal
+  %dt= t(:name)
+  %dd= @assignment.name
+  %dt= t(:value)
+  %dd= @assignment.value
+  %dt= t(:due_date)
+  %dd= @assignment.due_date
+  %dt= t(:classroom)
+  %dd= @assignment.classroom
+  %dt= t(:quizlet)
+  %dd= @assignment.quizlet_id
+  %dt= t(:admin)
+  %dd= @assignment.admin

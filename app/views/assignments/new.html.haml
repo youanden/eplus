@@ -1,0 +1,7 @@
+.page-header
+  = link_to assignments_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t(:back)
+  %h1= t(:new_assignment)
+
+= render 'form'

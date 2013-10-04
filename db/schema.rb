@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003214945) do
+ActiveRecord::Schema.define(version: 20131004063602) do
 
   create_table "admins", force: true do |t|
     t.string   "username"
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20131003214945) do
   end
 
   add_index "api_authorizations", ["admin_id"], name: "index_api_authorizations_on_admin_id", using: :btree
+
+  create_table "assignments", force: true do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.datetime "due_date"
+    t.integer  "quizlet_id"
+    t.integer  "admin_id"
+    t.integer  "classroom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignments", ["admin_id"], name: "index_assignments_on_admin_id", using: :btree
+  add_index "assignments", ["classroom_id"], name: "index_assignments_on_classroom_id", using: :btree
 
   create_table "classrooms", force: true do |t|
     t.string   "name"

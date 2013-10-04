@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  value: 1
+  due_date: 2013-10-04 01:36:02
+  classroom_id: 
+  quizlet_id: 1
+  admin_id: 
+
+two:
+  name: MyString
+  value: 1
+  due_date: 2013-10-04 01:36:02
+  classroom_id: 
+  quizlet_id: 1
+  admin_id: 

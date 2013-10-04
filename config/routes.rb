@@ -1,4 +1,6 @@
 EPlus::Application.routes.draw do
+  resources :assignments
+
   resources :classrooms
 
   resources :api_authorizations
