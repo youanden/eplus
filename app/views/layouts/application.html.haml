@@ -28,10 +28,15 @@
             %li{:class => cp(root_path)}
               = link_to t(:home), root_path
             - if current_admin
-              %li{:class => cp(classrooms_path)}
-                = link_to t(:classrooms), classrooms_path
-              %li{:class => cp(assignments_path)}
-                = link_to t(:assignments), assignments_path
+              %li.dropdown
+                %a.dropdown-toggle{:href => '#', :role => 'button', :data => { :toggle => 'dropdown', :target => '#'}}
+                  Manage
+                  %b.caret
+                %ul.dropdown-menu
+                  %li{:class => cp(classrooms_path)}
+                    = link_to t(:classrooms), classrooms_path
+                  %li{:class => cp(assignments_path)}
+                    = link_to t(:assignments), assignments_path
           %ul.nav.navbar-nav.pull-right
             - if current_admin
               %li{:class => cp(admins_path)}

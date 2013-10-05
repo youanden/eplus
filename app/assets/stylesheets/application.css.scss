@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+ body {
+  overflow-y: scroll;
+ }
+.navbar {
+  .dropdown-menu {
+    .active {
+      a {
+        cursor: default;
+        background-color: #4EAEDB;
+        &:hover {
+          background-color: #4EAEDB;
+        }
+      }
+    }
+  }
+  .nav .dropdown.open {
+    .dropdown-toggle {
+      background: #eee;
+    }
+  }
+}

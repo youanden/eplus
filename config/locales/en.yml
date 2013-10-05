@@ -21,7 +21,11 @@
 
 en:
   app_name: "EPlus "
+  admins: "Admins"
+  classrooms: "Classrooms"
+  assignments: "Assignments"
   sign_in: "Sign in"
+  sign_out: "Sign out"
   username: "Username"
   password: "Password"
   submit: "Submit"

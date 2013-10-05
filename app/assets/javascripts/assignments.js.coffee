@@ -13,5 +13,8 @@ initDateTimePicker = ->
   $('#due_date').datetimepicker
     language: 'lt-LT'
 
+$(document).ready ->
+  initDateTimePicker()
+
 $(document).on 'page:load', ->
   initDateTimePicker()
