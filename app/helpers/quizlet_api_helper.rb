@@ -16,8 +16,8 @@ module QuizletApiHelper
       name: 'quizlet'
     ).pluck(:value).first
     return false unless quizlet_auth
-    get_res = http.get "#{@@api_path}/#{path}", nil, "Authorization" => "Bearer #{quizlet_auth}"
-    return JSON.parse get_res.content
+    get_res = http.get "#{@@api_path}/#{@@api_ver}/#{path}", nil, "Authorization" => "Bearer #{quizlet_auth}"
+    return JSON.parse get_res.content.force_encoding("UTF-8")
   end
 
   def self.authorization_redirect

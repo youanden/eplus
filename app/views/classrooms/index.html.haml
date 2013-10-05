@@ -2,6 +2,10 @@
   = link_to new_classroom_path, :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     = t(:new_classroom)
+  - if current_admin.authorized_quizlet
+    = link_to import_path(:api => 'quizlet', :type => 'classrooms'), :class => 'btn btn-info' do
+      %span.glyphicon.glyphicon-cloud-download
+      = t(:import_classrooms)
   %h1= t(:listing_classrooms)
 
 .table-responsive

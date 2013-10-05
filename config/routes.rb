@@ -9,6 +9,7 @@ EPlus::Application.routes.draw do
   get "sign_out" => "sessions#destroy", as: "sign_out"
   get "authorize/:type" => "api_authorizations#create"
   get "authorize" => "api_authorizations#authorize"
+  get "import/:api/:type" => "api_authorizations#import", as: "import"
   resources :admins
   resources :sessions
 
