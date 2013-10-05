@@ -11,7 +11,7 @@
   %dt= t(:username)
   %dd= @admin.username
   %dt= t(:created_on)
-  %dd= @admin.created_at
+  %dd= l @admin.created_at, :format => :short
   %dt= t(:authorized)
   %dd
     - @authorizations.each do |auth|

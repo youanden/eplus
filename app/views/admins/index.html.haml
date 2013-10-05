@@ -18,7 +18,7 @@
       - @admins.each do |admin|
         %tr
           %td= admin.username
-          %td= admin.created_at
+          %td= l admin.created_at, :format => :short
           %td= link_to t(:show), admin
           %td= link_to t(:edit), edit_admin_path(admin)
           %td= link_to t(:destroy), admin, :data => { confirm: t(:are_you_sure) }, :method => :delete

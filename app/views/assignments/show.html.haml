@@ -13,7 +13,7 @@
   %dt= t(:value)
   %dd= @assignment.value
   %dt= t(:due_date)
-  %dd= @assignment.due_date
+  %dd= l @assignment.due_date, :format => :short
   %dt= t(:classroom)
   %dd= @assignment.classroom.name
   %dt= t(:quizlet)

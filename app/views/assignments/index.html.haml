@@ -22,7 +22,7 @@
         %tr
           %td= assignment.name
           %td= assignment.value
-          %td= assignment.due_date
+          %td= l assignment.due_date, :format => :short
           %td= assignment.classroom.name
           %td= assignment.admin.username
           %td= link_to t(:show), assignment

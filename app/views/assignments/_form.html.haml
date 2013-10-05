@@ -18,8 +18,13 @@
       = f.number_field :value, :class => 'form-control'
   .form-group
     = f.label :due_date, :class => 'col-lg-2 control-label'
-    .col-lg-10
-      = f.datetime_select :due_date, :class => 'form-control'
+    .col-lg-10.input-group.date
+      - if @assignment.due_date
+        = text_field_tag "assignment[due_date]", @assignment.due_date.to_s(:db), :id => "due_date", :class => 'form-control', :data => { :format => "yyyy-MM-dd hh:mm:ss" }
+      - else
+        = f.text_field :due_date, :id => "due_date", :class => 'form-control', :data => { :format => "yyyy-MM-dd hh:mm:ss" }
+      %span{:class => "input-group-addon"}
+        %span{:class => "glyphicon glyphicon-calendar"}
   .form-group
     = f.label :classroom, :class => 'col-lg-2 control-label'
     .col-lg-10

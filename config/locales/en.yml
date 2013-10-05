@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_name: "EPlus"
+  app_name: "EPlus "
   sign_in: "Sign in"
   username: "Username"
   password: "Password"
