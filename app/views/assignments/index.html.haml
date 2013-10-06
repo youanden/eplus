@@ -23,7 +23,7 @@
           %td= assignment.name
           %td= assignment.value
           %td= l assignment.due_date, :format => :short
-          %td= assignment.classroom.name
+          %td= assignment.classroom ? assignment.classroom.name : "N/A"
           %td= assignment.admin.username
           %td= link_to t(:show), assignment
           %td= link_to t(:edit), edit_assignment_path(assignment)

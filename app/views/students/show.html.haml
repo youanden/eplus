@@ -5,10 +5,8 @@
   = link_to edit_student_path(@student), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     = t(:edit)
-  %h1= t(:show_student)
+  %h1= @student.username
 
 %dl.dl-horizontal
-  %dt= t(:username)
-  %dd= @student.username
   %dt= t(:classrooms)
   %dd= @student.classrooms.map{|c| c.name}.join(', ')

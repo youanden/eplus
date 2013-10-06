@@ -15,14 +15,14 @@
   .form-group
     = f.label :value, :class => 'col-lg-2 control-label'
     .col-lg-10
-      = f.number_field :value, :class => 'form-control'
+      = f.number_field :value, :class => 'form-control', :min => 0, :step => 5
   .form-group
     = f.label :due_date, :class => 'col-lg-2 control-label'
     .col-lg-10.input-group.date
       - if @assignment.due_date
         = text_field_tag "assignment[due_date]", @assignment.due_date.to_s(:db), :id => "due_date", :class => 'form-control', :data => { :format => "yyyy-MM-dd hh:mm:ss" }
       - else
-        = f.text_field :due_date, :id => "due_date", :class => 'form-control', :data => { :format => "yyyy-MM-dd hh:mm:ss" }
+        = text_field_tag "assignment[due_date]", DateTime.now.midnight.to_s(:db), :id => "due_date", :class => 'form-control', :data => { :format => "yyyy-MM-dd hh:mm:ss" }
       %span{:class => "input-group-addon"}
         %span{:class => "glyphicon glyphicon-calendar"}
   .form-group

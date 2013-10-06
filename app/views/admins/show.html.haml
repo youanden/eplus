@@ -5,15 +5,10 @@
   = link_to edit_admin_path(@admin), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     = t(:edit)
-  %h1= t(:show_admin)
+  %h1= @admin.username
 
 %dl.dl-horizontal
-  %dt= t(:username)
-  %dd= @admin.username
   %dt= t(:created_on)
   %dd= l @admin.created_at, :format => :short
   %dt= t(:authorized)
-  %dd
-    - @authorizations.each do |auth|
-      = auth.name
-
+  %dd= @authorizations.each.map{|auth| auth.name}.join(', ')
