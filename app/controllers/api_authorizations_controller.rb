@@ -20,9 +20,25 @@ class ApiAuthorizationsController < ApplicationController
           admin_id: current_admin.id
         }
         Classroom.find_or_create(model_data)
+        redirect_to classrooms_path, notice: t(:imported_classrooms)
       end
+    else if api == 'quizlet' and type == 'students'
+      path = "users/#{current_admin.username}/groups"
+      quizlet_classrooms = QuizletApiHelper.get_response(path, current_admin)
+      quizlet_classrooms.each do |quizlet_classroom|
+        students  = quizlet_classroom['members']
+        classroom = Classroom.find_or_create_by(quizlet_id: quizlet_classroom['id'])
+        students.each do |student|
+          next if student['role'] == 'admin'
+          student_ar = Student.find_or_create_by(username: student['username'])
+          student_ar.classrooms << classroom unless student_ar.classrooms.include?(classroom)
+        end
+      end
+      redirect_to students_path, notice: t(:imported_students)
+      return
+    end
 
-      redirect_to classrooms_path, notice: t(:imported_classrooms)
+      redirect_to root_path, notice: t(:undefined_import)
     end
   end
 
