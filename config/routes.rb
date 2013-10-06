@@ -1,4 +1,6 @@
 EPlus::Application.routes.draw do
+  resources :students
+
   resources :assignments
 
   resources :classrooms

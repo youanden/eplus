@@ -37,6 +37,8 @@
                     = link_to t(:classrooms), classrooms_path
                   %li{:class => cp(assignments_path)}
                     = link_to t(:assignments), assignments_path
+                  %li{:class => cp(students_path)}
+                    = link_to t(:students), students_path
           %ul.nav.navbar-nav.pull-right
             - if current_admin
               %li{:class => cp(admins_path)}

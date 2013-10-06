@@ -1,0 +1,22 @@
+.page-header
+  = link_to new_student_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t(:new_student)
+  %h1= t(:listing_students)
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th= t(:username)
+        %th
+        %th
+        %th
+
+    %tbody
+      - @students.each do |student|
+        %tr
+          %td= student.username
+          %td= link_to t(:show), student
+          %td= link_to t(:edit), edit_student_path(student)
+          %td= link_to t(:destroy), student, :data => { confirm: t(:are_you_sure) }, :method => :delete

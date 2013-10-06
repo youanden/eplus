@@ -1,0 +1,24 @@
+= form_for @student, :html => { :class => "form-horizontal" } do |f|
+  -if @student.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{pluralize(@student.errors.count, "error")} prohibited this student from being saved:"
+
+      %ul
+        - @student.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :username, :class => 'col-lg-2 control-label'
+    .col-lg-10
+      = f.text_field :username, :class => 'form-control'
+  = label_tag nil, "Classrooms"
+  = hidden_field_tag "student[classroom_ids][]", nil
+  .row
+    - Classroom.all.each do |classroom|
+      .col-sm-3
+        = check_box_tag "student[classroom_ids][]", classroom.id, @student.classroom_ids.include?(classroom.id), id: dom_id(classroom)
+        = label_tag dom_id(classroom), classroom.name
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit :class => 'btn btn-primary'

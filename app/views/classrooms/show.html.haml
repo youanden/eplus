@@ -14,3 +14,5 @@
   %dd= @classroom.quizlet_id
   %dt= t(:admin)
   %dd= @classroom.admin.username
+  %dt= t(:students)
+  %dd= @classroom.students.map{|s| s.username}.join(', ')
