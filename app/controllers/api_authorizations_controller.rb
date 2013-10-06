@@ -1,4 +1,5 @@
 class ApiAuthorizationsController < ApplicationController
+  before_action :authenticate, only: [:create, :import, :authorize]
   include QuizletApiHelper
 
   def create
@@ -52,5 +53,10 @@ class ApiAuthorizationsController < ApplicationController
     else
       redirect_to root_path, notice: t(:failed_authorization)
     end
+  end
+
+  private
+  def authenticate
+    redirect_to root_path, alert: "Not authorized" unless current_admin
   end
 end

@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:grade, :show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
 
   def grade
     student_id = params[:student_id]
@@ -88,5 +89,9 @@ class AssignmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit(:name, :value, :due_date, :classroom_id, :quizlet_id)
+    end
+
+    def authenticate
+      redirect_to root_path, alert: "Not authorized" unless current_admin
     end
 end

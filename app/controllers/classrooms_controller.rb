@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   before_action :set_classroom, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /classrooms
   # GET /classrooms.json
@@ -71,5 +72,9 @@ class ClassroomsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def classroom_params
       params.require(:classroom).permit(:name, :quizlet_id)
+    end
+
+    def authenticate
+      redirect_to root_path, alert: "Not authorized" unless current_admin
     end
 end

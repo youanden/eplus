@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /admins
   # GET /admins.json
@@ -71,5 +72,9 @@ class AdminsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
       params.require(:admin).permit(:username, :password, :password_confirmation)
+    end
+
+    def authenticate
+      redirect_to root_path, alert: "Not authorized" unless current_admin
     end
 end

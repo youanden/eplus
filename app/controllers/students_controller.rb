@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
   # GET /students
   # GET /students.json
   def index
@@ -70,5 +70,9 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
       params.require(:student).permit(:username, :classroom_ids => [])
+    end
+
+    def authenticate
+      redirect_to root_path, alert: "Not authorized" unless current_admin
     end
 end
