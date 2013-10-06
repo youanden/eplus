@@ -36,9 +36,10 @@
             %th= t(:learner)
             %th= t(:speller)
             %th= t(:scatter)
+            %th= t(:spacerace)
           - else
             %th= t(:grade)
-      - raise "T"
+      / - raise "T"
       %tbody
         - @assignment.classroom.students.each do |student|
           %tr
@@ -47,6 +48,7 @@
               %td= student.get_grade_for_mode(@assignment, 'learn')
               %td= student.get_grade_for_mode(@assignment, 'spell')
               %td= student.get_grade_for_mode(@assignment, 'scatter')
+              %td= student.get_grade_for_mode(@assignment, 'spacerace')
             - else
               %td{:class => 'grade_container'}
                 .input-group
