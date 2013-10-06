@@ -3,7 +3,8 @@ EPlus::Application.routes.draw do
 
   resources :students
 
-  post "assignments/:id/grade/:student_id" => "assignments#grade", as: "grade_assignment"
+  get "assignments/:id/grade" => "assignments#grade_assignment", as: "grade_assignment"
+  post "assignments/:id/grade/:student_id" => "assignments#grade_student", as: "grade_student"
   resources :assignments
 
   resources :classrooms

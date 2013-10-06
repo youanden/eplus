@@ -7,4 +7,9 @@ class Student < ActiveRecord::Base
     grade = self.grades.where(assignment_id: assignment.id).first
     return grade ? grade.value : "N/A"
   end
+
+  def get_grade_for_mode(assignment, mode)
+    grade = self.grades.where(assignment_id: assignment.id, mode: mode).first
+    return grade ? grade.value : "N/A"
+  end
 end

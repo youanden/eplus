@@ -1,8 +1,42 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:grade, :show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:grade_assignment, :grade_student, :show, :edit, :update, :destroy]
   before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
+  include QuizletApiHelper
 
-  def grade
+  def grade_assignment
+    @assignment.classroom.students.each do |student|
+      study_sessions = QuizletApiHelper.get_response("users/#{student.username}/studied", current_admin)
+      study_sessions.each do |study_session|
+        next if study_session['mode'] == 'flashcards'
+        next if study_session['mode'] == 'test'
+        if study_session['set']['id'] == @assignment.quizlet_id
+          model_data = {
+            student_id: student.id,
+            assignment_id: @assignment.id,
+            mode: study_session['mode']
+          }
+          if study_session['finish_date']
+            model_data['finish_date'] = DateTime.strptime(study_session['finish_date'].to_s, "%s")
+            model_data['value'] = @assignment.value
+          else
+            model_data['value'] = 0
+          end
+
+          if study_session['formatted_score']
+            model_data['value'] = study_session['formatted_score']
+          end
+
+          grade = Grade.find_or_create_by student_id: student.id, assignment_id: @assignment.id
+          grade.update_attributes model_data
+          grade.save
+        end
+      end
+    end
+
+    redirect_to @assignment, notice: t(:assignment_graded)
+  end
+
+  def grade_student
     student_id = params[:student_id]
     grade_value = params[:grade].to_i
     if grade_value > @assignment.value
