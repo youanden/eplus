@@ -19,8 +19,9 @@ class ApiAuthorizationsController < ApplicationController
           quizlet_id: quizlet_classroom['id'],
           admin_id: current_admin.id
         }
-        Classroom.find_or_create(model_data)
+        Classroom.find_or_create_by(model_data)
         redirect_to classrooms_path, notice: t(:imported_classrooms)
+        return
       end
     else if api == 'quizlet' and type == 'students'
       path = "users/#{current_admin.username}/groups"
