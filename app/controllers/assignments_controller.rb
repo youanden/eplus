@@ -1,5 +1,22 @@
 class AssignmentsController < ApplicationController
-  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:grade, :show, :edit, :update, :destroy]
+
+  def grade
+    student_id = params[:student_id]
+    grade_value = params[:grade].to_i
+    if grade_value > @assignment.value
+      grade_value = @assignment.value
+    elsif grade_value < 0
+      grade_value = 0
+    end
+    grade = Grade.find_or_create_by assignment_id: @assignment.id, student_id: student_id
+    grade.update_attributes value: grade_value
+    if grade.save
+      render text: 1
+    else
+      render text: 0
+    end
+  end
 
   # GET /assignments
   # GET /assignments.json

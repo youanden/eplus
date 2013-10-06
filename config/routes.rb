@@ -1,6 +1,9 @@
 EPlus::Application.routes.draw do
+  resources :grades
+
   resources :students
 
+  post "assignments/:id/grade/:student_id" => "assignments#grade", as: "grade_assignment"
   resources :assignments
 
   resources :classrooms
@@ -61,6 +64,5 @@ EPlus::Application.routes.draw do
   #     post 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
+  #   re
 end

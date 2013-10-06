@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005230115) do
+ActiveRecord::Schema.define(version: 20131006031525) do
 
   create_table "admins", force: true do |t|
     t.string   "username"
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(version: 20131005230115) do
     t.integer "classroom_id"
     t.integer "student_id"
   end
+
+  create_table "grades", force: true do |t|
+    t.string   "mode"
+    t.integer  "value"
+    t.datetime "finish_date"
+    t.integer  "assignment_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "grades", ["assignment_id"], name: "index_grades_on_assignment_id", using: :btree
+  add_index "grades", ["student_id"], name: "index_grades_on_student_id", using: :btree
 
   create_table "students", force: true do |t|
     t.string   "username"

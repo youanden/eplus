@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mode: MyString
+  value: 1
+  finish_date: 2013-10-05 22:15:25
+  assignment_id: 
+  student_id: 
+
+two:
+  mode: MyString
+  value: 1
+  finish_date: 2013-10-05 22:15:25
+  assignment_id: 
+  student_id: 
