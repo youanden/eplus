@@ -15,10 +15,11 @@ class AssignmentsController < ApplicationController
             assignment_id: @assignment.id,
             mode: study_session['mode']
           }
-          # raise "T" if study_session['mode'] == "spacerace"
           if study_session['formatted_score']
             model_data['score'] = study_session['formatted_score']
-          elsif study_session['finish_date']
+          end
+
+          if study_session['finish_date']
             model_data['finish_date'] = DateTime.strptime(study_session['finish_date'].to_s, "%s")
             model_data['value'] = @assignment.value
           else
@@ -28,7 +29,6 @@ class AssignmentsController < ApplicationController
           grade = Grade.find_or_create_by model_data
           grade.update_attributes model_data
           grade.save
-          # student.grades << grade
         end
       end
     end

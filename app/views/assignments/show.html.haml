@@ -39,14 +39,13 @@
             %th= t(:spacerace)
           - else
             %th= t(:grade)
-      / - raise "T"
       %tbody
         - @assignment.classroom.students.each do |student|
           %tr
             %td= student.username
             - if @assignment.quizlet_id
               %td= student.get_grade_for_mode(@assignment, 'learn')
-              %td= student.get_grade_for_mode(@assignment, 'spell')
+              %td= student.get_grade_for_mode(@assignment, 'speller')
               %td= student.get_grade_for_mode(@assignment, 'scatter')
               %td= student.get_grade_for_mode(@assignment, 'spacerace')
             - else

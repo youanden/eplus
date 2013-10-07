@@ -11,7 +11,6 @@ class Student < ActiveRecord::Base
   def get_grade_for_mode(assignment, mode)
     grade = self.grades.where(assignment_id: assignment.id, mode: mode).first
     if mode == 'scatter' or mode == 'spacerace'
-      # raise "T" if self.username == "youanden"
       return defined?(grade.score) ? grade.score : "N/A"
     else
       return grade ? grade.value : "N/A"
