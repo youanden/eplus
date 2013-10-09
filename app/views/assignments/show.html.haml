@@ -6,7 +6,7 @@
     %span.glyphicon.glyphicon-pencil
     = t(:edit)
   - if @assignment.quizlet_id
-    = link_to grade_assignment_path, :class => 'btn btn-info' do
+    = link_to grade_assignment_path, :class => 'grade btn btn-info', :data => { 'loading-text' => t(:now_grading) } do
       %span.glyphicon.glyphicon-check
       = t(:grade_classroom)
   %h1= @assignment.name
@@ -40,7 +40,7 @@
           - else
             %th= t(:grade)
       %tbody
-        - @assignment.classroom.students.each do |student|
+        - @students.each do |student|
           %tr
             %td= student.username
             - if @assignment.quizlet_id

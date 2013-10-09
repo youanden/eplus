@@ -3,7 +3,7 @@
     %span.glyphicon.glyphicon-plus
     = t(:new_student)
   - if current_admin.authorized_quizlet
-    = link_to import_path(:api => 'quizlet', :type => 'students'), :class => 'btn btn-info' do
+    = link_to import_path(:api => 'quizlet', :type => 'students'), :class => 'import btn btn-info', :data => { 'loading-text' => t(:now_importing) } do
       %span.glyphicon.glyphicon-cloud-download
       = t(:import_students)
   %h1= t(:listing_students)

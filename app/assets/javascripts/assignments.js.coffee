@@ -13,8 +13,15 @@ initDateTimePicker = ->
   $('#due_date').datetimepicker
     language: 'lt-LT'
 
+initGrading = ->
+  $('.grade').on 'click', (e) ->
+    $(this).button('loading')
+
 $(document).ready ->
+  initGrading()
   initDateTimePicker()
 
 $(document).on 'page:load', ->
+  initGrading()
   initDateTimePicker()
+

@@ -40,3 +40,6 @@ en:
   show: "Show"
   imported_classrooms: "Successfully imported classrooms!"
   imported_students: "Successfully imported students!"
+  now_grading: "Grading..."
+  now_importing: "Importing..."
+  assignment_graded: "Assignment Graded!"

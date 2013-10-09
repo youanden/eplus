@@ -62,6 +62,8 @@ class AssignmentsController < ApplicationController
   # GET /assignments/1
   # GET /assignments/1.json
   def show
+    @students = @assignment.classroom.students.includes(:grades)
+      .order('grades.score DESC')
   end
 
   # GET /assignments/new
