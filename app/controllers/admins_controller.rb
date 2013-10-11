@@ -21,6 +21,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+    redirect_to root_path, alert: "Not authorized" unless current_admin.id == @admin.id
   end
 
   # POST /admins
