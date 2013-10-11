@@ -28,6 +28,17 @@
 
 *(preferable if your model data will contain non-latin characters)*
 
+#### Admin Creation
+
+Either use the db/seeds.rb to create an admin, or open:
+
+	rails c
+
+	Admin.create! username: 'user', password: 'pass'
+
+Then you can log in once the app has started.
+
+
 #### Example gists:
 
 [.env:](https://gist.github.com/youanden/6930280)
