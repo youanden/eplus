@@ -5,7 +5,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.json
   def index
-    @classrooms = Classroom.all
+    @classrooms = Classroom.where(admin_id: current_admin.id)
   end
 
   # GET /classrooms/1

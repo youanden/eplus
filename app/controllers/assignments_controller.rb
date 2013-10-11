@@ -56,7 +56,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.all
+    @assignments = Assignment.where(admin_id: current_admin.id)
   end
 
   # GET /assignments/1
