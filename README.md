@@ -57,6 +57,8 @@ or
 
 ### Roadmap
 
+* Replace complex view logic with presenters
+
 * Further automation with admin time zones and upcoming assignment javascript detection
 
 * Implement Khan Academy Api
