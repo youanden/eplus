@@ -41,7 +41,7 @@
                     = link_to t(:students), students_path
               - unless current_admin.authorized_quizlet
                 %li
-                  = link_to "Authorize Quizlet", "/authorize/quizlet"
+                  = link_to t(:authorize_quizlet), "/authorize/quizlet"
           %ul.nav.navbar-nav.pull-right
             - if current_admin
               %li{:class => cp(admins_path)}
